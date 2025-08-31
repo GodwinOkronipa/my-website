@@ -1,0 +1,146 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --accent: #14b8a6; /* teal */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0f0f10;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Snap scroll layout */
+html,
+body {
+  height: 100%;
+}
+
+/* Full-page vertical snap scrolling */
+.snap-container {
+  scroll-snap-type: y mandatory;
+  overflow-y: auto;
+  height: 100dvh;
+}
+
+.snap-section {
+  scroll-snap-align: start;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+}
+
+/* Background gradient with subtle lime/grey glow */
+.futuristic-bg {
+  position: relative;
+  background: 
+    radial-gradient(1200px 800px at 10% 0%, rgba(199, 199, 199, 0.18), transparent 60%),
+    radial-gradient(1000px 700px at 90% 100%, rgba(20, 184, 166, 0.12), transparent 60%),
+    linear-gradient(180deg, rgba(10,10,12,0.6), rgba(10,10,12,0.75));
+}
+
+.futuristic-bg::before {
+  content: "";
+  position: absolute;
+  inset: -20px;
+  pointer-events: none;
+  background: 
+    radial-gradient(320px 320px at 80% 20%, rgba(199,199,199,0.16), transparent 60%),
+    radial-gradient(280px 280px at 20% 80%, rgba(20,184,166,0.12), transparent 60%);
+  filter: blur(30px);
+}
+
+/* Additional soft teal blur shapes (human, unimposing) */
+.futuristic-bg::after {
+  content: "";
+  position: absolute;
+  width: 50vmax;
+  height: 50vmax;
+  left: -20vmax;
+  top: 30vh;
+  background: radial-gradient(closest-side, rgba(20,184,166,0.08), transparent 70%);
+  filter: blur(50px);
+  animation: floatSlow 18s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+/* Frosted glass card utility */
+.glass {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(20, 184, 166, 0.18);
+  backdrop-filter: blur(10px) saturate(140%);
+  -webkit-backdrop-filter: blur(10px) saturate(140%);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(20, 184, 166, 0.16);
+  backdrop-filter: blur(10px) saturate(140%);
+  -webkit-backdrop-filter: blur(10px) saturate(140%);
+  border-radius: 16px;
+}
+
+/* Smooth fade/slide animations */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeUp {
+  animation: fadeUp 700ms ease-out both;
+}
+
+/* Accent utilities */
+.accent {
+  color: var(--accent);
+}
+
+.btn-accent {
+  border: 1px solid color-mix(in oklab, var(--accent) 70%, white 30%);
+  box-shadow: 0 0 0 0 rgba(20,184,166,0);
+  transition: box-shadow 200ms ease, background 200ms ease, transform 200ms ease;
+}
+
+.btn-accent:hover {
+  background: color-mix(in oklab, var(--accent) 12%, transparent);
+  box-shadow: 0 10px 25px rgba(20,184,166,0.18);
+}
+
+/* Link accent utility */
+.link-accent:hover {
+  color: var(--accent);
+}
+
+/* Gentle floating animation for background shapes */
+@keyframes floatSlow {
+  from {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    transform: translate3d(3vw, -2vh, 0) scale(1.03);
+  }
+}
