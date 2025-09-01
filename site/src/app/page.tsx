@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <div className="snap-container futuristic-bg text-white">
+    <div className="futuristic-bg text-white min-h-screen overflow-x-hidden">
       {/* Top Navigation */}
       <header className="fixed top-0 left-0 right-0 z-50">
         <nav className="mx-auto max-w-6xl mt-3 px-4 flex justify-center">
@@ -16,14 +16,14 @@ export default function Home() {
       </header>
 
       {/* 1. Home */}
-      <section id="home" className="snap-section px-6 sm:px-10 pt-20">
+      <section id="home" className="anchor-offset px-6 sm:px-10 pt-20">
         <div className="max-w-5xl mx-auto w-full">
           <div className="glass-dark p-8 sm:p-12 animate-fadeUp">
             <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight">
-              Godwin Okronipa
+              Godwin Okronipa (Exorrnam)
             </h1>
             <p className="mt-4 text-lg sm:text-xl text-zinc-200">
-              Product Manager · Systems Analyst · AI Engineer · Advocate for Ethical & Responsible AI
+              <span className="accent">Product Manager</span> · <span className="accent">Systems Analyst</span> · <span className="accent">AI Engineer</span> · Advocate for <span className="accent">Ethical & Responsible AI</span>
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
@@ -57,7 +57,7 @@ export default function Home() {
       </section>
 
       {/* 2. About Me */}
-      <section id="about" className="snap-section px-6 sm:px-10">
+      <section id="about" className="anchor-offset px-6 sm:px-10 py-16">
         <div className="max-w-4xl mx-auto w-full">
           <div className="glass-dark p-8 sm:p-10 animate-fadeUp">
             <h2 className="text-2xl sm:text-3xl font-semibold">About Me</h2>
@@ -76,22 +76,22 @@ export default function Home() {
             </div>
 
             <p className="mt-4 text-zinc-100">
-              I’m a curious builder who loves clean design and helpful systems. At my core, I believe technology should feel intuitive and empowering — not overwhelming.
+              I’m a curious builder who loves <span className="accent">clean design</span> and <span className="accent">helpful systems</span>. At my core, I believe technology should feel <span className="accent">intuitive and empowering</span>, not overwhelming.
             </p>
             <p className="mt-3 text-zinc-200">
-              Currently in my third year of Computer Engineering at GCTU, I sit at the intersection of systems, networks, and product management. My work spans from hands-on engineering to high-level strategy, where I enjoy translating complex technical concepts into solutions that people can actually use.
+              Currently in my third year of Computer Engineering at GCTU, I sit at the intersection of <span className="accent">Hardware systems</span>, <span className="accent">Software Development</span> and <span className="accent">product management</span>. My work spans from <span className="accent">hands-on engineering</span> to <span className="accent">high-level strategy</span>, where I enjoy translating <span className="accent">complex technical concepts</span> into solutions that people can actually use.
             </p>
             <p className="mt-3 text-zinc-200">
-              As a Product Manager at Flywheel Technologies, I’ve led the launch of over 20 apps and websites for SMEs in Ghana, helping businesses digitize operations, automate workflows, and uncover efficiency gains they didn’t think were possible. I don’t just ship products — I partner with teams to craft strategies that align with client goals, always asking “How does this make life easier for the end user?”
+              As a <span className="accent">Product Manager</span> at Flywheel Technologies, I’ve led the launch of over 20 apps and websites for SMEs in Ghana, helping businesses <span className="accent">digitize operations</span>, <span className="accent">automate workflows</span>, and uncover <span className="accent">efficiency gains</span> they didn’t think were possible. I don’t just ship products, I partner with teams to craft <span className="accent">strategies that align with client goals</span>, making life easier for the end user.
             </p>
             <p className="mt-3 text-zinc-200">
-              At Telecel Ghana, my role as a Digital Transformation Analyst deepens this passion. I collaborate with cross-functional teams to reimagine processes, analyze data, and guide the adoption of digital tools that reduce friction and unlock new opportunities. For me, it’s not just about the tech — it’s about building systems that empower people and organizations to thrive.
+              At Telecel Ghana, my role as a <span className="accent">Digital Transformation Analyst</span> deepens this passion. I collaborate with cross-functional teams to <span className="accent">reimagine processes</span>, <span className="accent">analyze data</span>, and guide the adoption of <span className="accent">digital tools</span> that reduce friction and unlock new opportunities.
             </p>
             <p className="mt-3 text-zinc-200">
-              Beyond industry, I’m deeply invested in the future of ethical and responsible AI. I see AI as a powerful tool for progress, but only if guided with principles of fairness, transparency, and impact. That belief underpins everything I do — from classroom projects to my independent research and community work.
+              Beyond industry, I’m deeply invested in the future of <span className="accent">ethical and responsible AI</span>. I see AI as a powerful tool for progress, but only if guided with principles of <span className="accent">fairness, transparency, and impact</span>. That belief underpins everything I do from classroom projects to my independent research and community work.
             </p>
             <p className="mt-3 text-zinc-200">
-              At heart, I’m driven by curiosity, creativity, and a commitment to impact. Whether I’m sketching ideas on a whiteboard, debugging a stubborn system, or mentoring younger students about STEM, I find joy in creating and sharing solutions that matter. My vision is simple: to contribute to a future where Africa doesn’t just consume technology, but builds it, shapes it, and leads with it.
+              At heart, I’m driven by <span className="accent">curiosity, creativity, and a commitment to impact</span>. Whether I’m sketching ideas on a whiteboard, debugging a stubborn system, or mentoring younger students about STEM, I find joy in creating and sharing <span className="accent">solutions that matter</span>. My vision is simple: to contribute to a future where Africa doesn’t just consume technology, but <span className="accent">builds it, shapes it, and leads with it</span>.
             </p>
 
             <div className="mt-6">
@@ -104,8 +104,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. Past Experiences */}
-      <section id="experience" className="snap-section px-6 sm:px-10">
+      {/* 3. Past Experiences and Volunteering */}
+      <section id="experience" className="anchor-offset px-6 sm:px-10 py-16">
         <div className="max-w-5xl mx-auto w-full">
           <div className="glass-dark p-8 rounded-2xl animate-fadeUp">
             <h2 className="text-2xl sm:text-3xl font-semibold">Experience</h2>
@@ -117,10 +117,10 @@ export default function Home() {
                   Digital Transformation Analyst — Telecel Ghana <span className="font-normal text-zinc-300">(Sep 2025 – Present)</span>
                 </h3>
                 <ul className="mt-3 list-disc pl-5 text-zinc-300">
-                  <li>Spearheaded process automation initiatives, reducing manual reporting time by 35%.</li>
-                  <li>Analyzed operational data and proposed digital workflows that improved cross-department efficiency.</li>
-                  <li>Collaborated with IT and business units to design scalable digital solutions for customer and internal platforms.</li>
-                  <li>Supported the rollout of new enterprise systems, ensuring smooth adoption through training and documentation.</li>
+                  <li>Spearheaded <span className="accent">process automation</span> initiatives in TCASH and DT teams.</li>
+                  <li>Analyzed operational data and proposed <span className="accent">digital workflows</span> that improved cross-department efficiency.</li>
+                  <li>Collaborated with IT and business units to design <span className="accent">scalable digital solutions</span> for customer and internal platforms.</li>
+                  <li>Supported the rollout of new <span className="accent">enterprise systems</span>, ensuring smooth adoption through training and documentation.</li>
                 </ul>
               </div>
 
@@ -129,10 +129,10 @@ export default function Home() {
                   Product Manager — Flywheel Technologies Ltd. <span className="font-normal text-zinc-300">(2024 – Present)</span>
                 </h3>
                 <ul className="mt-3 list-disc pl-5 text-zinc-300">
-                  <li>Launched 20+ apps & websites with cross-functional teams, delivering projects on time and within scope.</li>
-                  <li>Crafted product strategies aligned with client goals, resulting in measurable efficiency gains.</li>
-                  <li>Engaged directly with SMEs to understand pain points and translate them into technical requirements.</li>
-                  <li>Oversaw end-to-end product lifecycle: ideation, design, development, deployment, and optimization.</li>
+                  <li>Launched <span className="accent">20+ apps & websites</span> with cross-functional teams, delivering projects on time and within scope.</li>
+                  <li>Crafted <span className="accent">product strategies</span> aligned with client goals, resulting in <span className="accent">measurable efficiency gains</span>.</li>
+                  <li>Engaged directly with SMEs to understand pain points and translate them into <span className="accent">technical requirements</span>.</li>
+                  <li>Oversaw <span className="accent">end-to-end product lifecycle</span>: ideation, design, development, deployment, and optimization.</li>
                 </ul>
               </div>
             </div>
@@ -141,7 +141,7 @@ export default function Home() {
       </section>
 
       {/* 5. Contact Me */}
-      <section id="contact" className="snap-section px-6 sm:px-10">
+      <section id="contact" className="anchor-offset px-6 sm:px-10 py-16">
         <div className="max-w-4xl mx-auto w-full">
           <div className="glass-dark p-8 rounded-2xl animate-fadeUp">
             <h2 className="text-2xl sm:text-3xl font-semibold">Contact Me</h2>
