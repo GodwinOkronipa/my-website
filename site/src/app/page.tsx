@@ -1,3 +1,5 @@
+'use client';
+
 export default function Home() {
   return (
     <div className="futuristic-bg text-white min-h-screen overflow-x-hidden">
@@ -58,7 +60,7 @@ export default function Home() {
 
       {/* 2. About Me */}
       <section id="about" className="anchor-offset px-6 sm:px-10 py-16">
-        <div className="max-w-4xl mx-auto w-full">
+        <div className="max-w-5xl mx-auto w-full">
           <div className="glass-dark p-8 sm:p-10 animate-fadeUp">
             <h2 className="text-2xl sm:text-3xl font-semibold">About Me</h2>
             <div className="mt-2 h-0.5 w-12" style={{ background: 'var(--accent)' }} />
@@ -76,22 +78,27 @@ export default function Home() {
             </div>
 
             <p className="mt-4 text-zinc-100">
-              I’m a curious builder who loves <span className="accent">clean design</span> and <span className="accent">helpful systems</span>. At my core, I believe technology should feel <span className="accent">intuitive and empowering</span>, not overwhelming.
+              I’m a curious builder who loves <span className="accent">clean design</span> and <span className="accent">helpful systems</span>. At my core, I believe technology should feel intuitive and empowering, not overwhelming.
             </p>
+
             <p className="mt-3 text-zinc-200">
               Currently in my third year of Computer Engineering at GCTU, I sit at the intersection of <span className="accent">Hardware systems</span>, <span className="accent">Software Development</span> and <span className="accent">product management</span>. My work spans from <span className="accent">hands-on engineering</span> to <span className="accent">high-level strategy</span>, where I enjoy translating <span className="accent">complex technical concepts</span> into solutions that people can actually use.
             </p>
+
             <p className="mt-3 text-zinc-200">
               As a <span className="accent">Product Manager</span> at Flywheel Technologies, I’ve led the launch of over 20 apps and websites for SMEs in Ghana, helping businesses <span className="accent">digitize operations</span>, <span className="accent">automate workflows</span>, and uncover <span className="accent">efficiency gains</span> they didn’t think were possible. I don’t just ship products, I partner with teams to craft <span className="accent">strategies that align with client goals</span>, making life easier for the end user.
             </p>
+
             <p className="mt-3 text-zinc-200">
               At Telecel Ghana, my role as a <span className="accent">Digital Transformation Analyst</span> deepens this passion. I collaborate with cross-functional teams to <span className="accent">reimagine processes</span>, <span className="accent">analyze data</span>, and guide the adoption of <span className="accent">digital tools</span> that reduce friction and unlock new opportunities.
             </p>
+
             <p className="mt-3 text-zinc-200">
               Beyond industry, I’m deeply invested in the future of <span className="accent">ethical and responsible AI</span>. I see AI as a powerful tool for progress, but only if guided with principles of <span className="accent">fairness, transparency, and impact</span>. That belief underpins everything I do from classroom projects to my independent research and community work.
             </p>
+
             <p className="mt-3 text-zinc-200">
-              At heart, I’m driven by <span className="accent">curiosity, creativity, and a commitment to impact</span>. Whether I’m sketching ideas on a whiteboard, debugging a stubborn system, or mentoring younger students about STEM, I find joy in creating and sharing <span className="accent">solutions that matter</span>. My vision is simple: to contribute to a future where Africa doesn’t just consume technology, but <span className="accent">builds it, shapes it, and leads with it</span>.
+              At heart, I’m driven by <span className="accent">curiosity, creativity, and a commitment to impact</span>. Whether I’m sketching ideas on a whiteboard, debugging a stubborn system, or mentoring younger students about STEM and robotics, I find joy in creating and sharing <span className="accent">solutions that matter</span>. My vision is simple: to contribute to a future where Africa doesn’t just consume technology, but <span className="accent">builds it, shapes it, and leads with it</span>.
             </p>
 
             <div className="mt-6">
@@ -107,7 +114,7 @@ export default function Home() {
       {/* 3. Past Experiences and Volunteering */}
       <section id="experience" className="anchor-offset px-6 sm:px-10 py-16">
         <div className="max-w-5xl mx-auto w-full">
-          <div className="glass-dark p-8 rounded-2xl animate-fadeUp">
+          <div className="glass-dark p-8 sm:p-10 animate-fadeUp">
             <h2 className="text-2xl sm:text-3xl font-semibold">Experience</h2>
             <div className="mt-2 h-0.5 w-14" style={{ background: 'var(--accent)' }} />
 
@@ -135,6 +142,19 @@ export default function Home() {
                   <li>Oversaw <span className="accent">end-to-end product lifecycle</span>: ideation, design, development, deployment, and optimization.</li>
                 </ul>
               </div>
+
+              <div className="glass p-5 rounded-xl">
+                <h3 className="text-lg font-semibold">
+                  Robotics Instructor — Ghana Communication Technology University <span className="font-normal text-zinc-300">(2025 – Present)</span>
+                </h3>
+                <ul className="mt-3 list-disc pl-5 text-zinc-300">
+                  <li>Mentor and guide students in <span className="accent">robotics engineering</span> principles, embedded systems, and automation technologies.</li>
+                  <li>Lead hands-on workshops and project-based learning sessions to develop <span className="accent">practical robotics skills</span>.</li>
+                  <li>Coach student teams for <span className="accent">national and international robotics competitions</span>, focusing on innovation and problem-solving.</li>
+                  <li>Organize and judge <span className="accent">hackathons and tech challenges</span> to foster creativity and collaboration among students.</li>
+                  <li>Develop curriculum and learning materials that bridge <span className="accent">theoretical knowledge</span> with <span className="accent">real-world applications</span> in robotics and automation.</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -143,7 +163,7 @@ export default function Home() {
       {/* 5. Contact Me */}
       <section id="contact" className="anchor-offset px-6 sm:px-10 py-16">
         <div className="max-w-4xl mx-auto w-full">
-          <div className="glass-dark p-8 rounded-2xl animate-fadeUp">
+          <div className="glass-dark p-8 sm:p-10 animate-fadeUp">
             <h2 className="text-2xl sm:text-3xl font-semibold">Contact Me</h2>
             <div className="mt-2 h-0.5 w-12" style={{ background: 'var(--accent)' }} />
             <div className="mt-4 grid gap-4 sm:grid-cols-2">
@@ -159,10 +179,6 @@ export default function Home() {
                 <a className="underline flex items-center gap-2 link-accent" href="https://GitHub.com/GodwinOkronipa" target="_blank" rel="noreferrer">
                   <span className="inline-block w-2 h-2 rounded-full" style={{ background: 'var(--accent)' }} />
                   GitHub
-                </a>
-                <a className="underline flex items-center gap-2 link-accent" href="https://substack.com/@godwinnotes" target="_blank" rel="noreferrer">
-                  <span className="inline-block w-2 h-2 rounded-full" style={{ background: 'var(--accent)' }} />
-                  Substack
                 </a>
               </div>
             </div>

@@ -1,16 +1,14 @@
-import type { NextConfig } from "next";
+/** @type {import('next').NextConfig} */
+const isProd = process.env.NODE_ENV === 'production';
+const repo = 'my-website';
 
-const nextConfig: NextConfig = {
-  // Output a static export suitable for GitHub Pages
-  output: "export",
-  // Project Pages path (repo name)
-  basePath: "/my-website",
-  assetPrefix: "/my-website/",
-  // Static export requires unoptimized images
+const nextConfig = {
+  output: 'export',
+  basePath: isProd ? `/${repo}` : '',
+  assetPrefix: isProd ? `/${repo}/` : '',
   images: {
     unoptimized: true,
   },
-  // Helpful for GitHub Pages (serves directories as index.html)
   trailingSlash: true,
 };
 
