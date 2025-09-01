@@ -14,51 +14,51 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Godwin Okronipa Exornam | Product Manager & AI Engineer",
+  metadataBase: new URL("https://GodwinOkronipa.github.io"),
+  title: {
+    default: "Godwin Okronipa Exornam | Product Manager & AI Engineer",
+    template: "%s | Godwin Okronipa Exornam",
+  },
   description: "Godwin Okronipa Exornam - Experienced Product Manager, Systems Analyst, and AI Engineer specializing in ethical AI solutions. Based in Ghana.",
-  authors: [{
+  keywords: [
+    "Godwin Okronipa",
+    "Godwin Exornam",
+    "Product Manager Ghana",
+    "AI Engineer Ghana",
+    "Systems Analyst Ghana",
+    "Ethical AI Expert",
+    "Responsible AI",
+    "Tech Professional Ghana",
+    "Digital Transformation Expert"
+  ],
+  authors: [{ 
     name: "Godwin Okronipa Exornam",
     url: "https://godwinokronipa.github.io/my-website/"
   }],
   robots: {
     index: true,
     follow: true,
-    'max-video-preview': -1,
-    'max-image-preview': 'large',
-    'max-snippet': -1,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
   verification: {
     google: 'google292271a51eb8fd7f',
   },
-  openGraph: {
-    title: "Godwin Okronipa Exornam | Product Manager & AI Engineer",
-    description: "Experienced Product Manager, Systems Analyst, and AI Engineer specializing in ethical AI solutions. Based in Ghana.",
-    url: "https://godwinokronipa.github.io/my-website/",
-    siteName: "Godwin Okronipa's Portfolio",
-    images: [
-      {
-        url: "/my-website/og-image.svg",
-        width: 1200,
-        height: 630,
-        alt: "Godwin Okronipa — Product Manager • Systems Analyst • AI",
-      },
-    ],
-    locale: 'en_US',
-    type: 'website',
-  },
-  themeColor: "#0f0f10",
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body className="min-h-screen bg-black text-white">
         {children}
         <BackToTop />
       </body>
