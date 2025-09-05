@@ -22,7 +22,7 @@ export default function Home() {
         <div className="max-w-5xl mx-auto w-full">
           <div className="glass-dark p-8 sm:p-12 animate-fadeUp">
             <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight">
-              Godwin Okronipa (Exorrnam)
+              Godwin Okronipa (Exornam)
             </h1>
             <p className="mt-4 text-lg sm:text-xl text-zinc-200">
               <span className="accent">Product Manager</span> · <span className="accent">Systems Analyst</span> · <span className="accent">AI Engineer</span> · Advocate for <span className="accent">Ethical & Responsible AI</span>
@@ -32,6 +32,7 @@ export default function Home() {
                 className="glass btn-accent px-5 py-2 rounded-full hover:scale-[1.02] transition" 
                 href="https://www.linkedin.com/in/godwin-okronipa-5b59002b6?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
                 target="_blank" rel="noreferrer"
+                
               >
                 LinkedIn
               </a>
