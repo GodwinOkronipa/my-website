@@ -22,6 +22,14 @@ export const metadata: Metadata = {
     title: 'Godwin Okronipa Exornam | Product Manager & AI Engineer',
     description: 'Experienced Product Manager, Systems Analyst, and AI Engineer specializing in ethical and responsible AI solutions.',
     siteName: 'Godwin Okronipa Exornam',
+    images: [
+      {
+        url: 'https://godwinokronipa.github.io/my-website/og-image.svg',
+        width: 1200,
+        height: 630,
+        alt: 'Godwin Okronipa Exornam - Product Manager & AI Engineer',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',

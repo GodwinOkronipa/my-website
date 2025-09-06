@@ -1,4 +1,17 @@
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /_next/static/
 
+# Allow all bots to index the site and follow links
+User-agent: *
+Crawl-delay: 10
+
+# Google-specific crawlers
+User-agent: Googlebot
+User-agent: Googlebot-Image
+User-agent: Googlebot-Mobile
+Allow: /
+
+# Sitemap location
 Sitemap: https://GodwinOkronipa.github.io/my-website/sitemap.xml

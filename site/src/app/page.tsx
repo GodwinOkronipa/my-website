@@ -1,8 +1,35 @@
 'use client';
 
 export default function Home() {
+  // Add schema.org structured data
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Godwin Okronipa",
+    "alternateName": "Exornam",
+    "jobTitle": ["Product Manager", "Systems Analyst", "AI Engineer"],
+    "url": "https://godwinokronipa.github.io/my-website",
+    "sameAs": [
+      "https://www.linkedin.com/in/godwin-okronipa-5b59002b6",
+      "https://GitHub.com/GodwinOkronipa",
+      "https://substack.com/@godwinnotes"
+    ],
+    "email": "godwinokro2020@gmail.com",
+    "telephone": "+233 200 645 732",
+    "description": "Product Manager, Systems Analyst, and AI Engineer specializing in ethical and responsible AI solutions.",
+    "affiliation": {
+      "@type": "Organization",
+      "name": "Ghana Communication Technology University"
+    }
+  };
+
   return (
-    <div className="futuristic-bg text-white min-h-screen overflow-x-hidden">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+      <div className="futuristic-bg text-white min-h-screen overflow-x-hidden">
       {/* Top Navigation */}
       <header className="fixed top-0 left-0 right-0 z-50">
         <nav className="mx-auto max-w-6xl mt-3 px-4 flex justify-center">
@@ -205,5 +232,6 @@ export default function Home() {
         </div>
       </section>
     </div>
+    </>
   );
 }
