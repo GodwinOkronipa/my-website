@@ -7,7 +7,7 @@ export default function Home() {
     "@type": "Person",
     "name": "Godwin Okronipa",
     "alternateName": "Exornam",
-    "jobTitle": ["Product Manager", "Systems Analyst", "AI Engineer"],
+    "jobTitle": ["Product Manager", "Systems Designer", "AI Engineer"],
     "url": "https://godwinokronipa.github.io/my-website",
     "sameAs": [
       "https://www.linkedin.com/in/godwin-okronipa-5b59002b6",
@@ -16,7 +16,7 @@ export default function Home() {
     ],
     "email": "godwinokro2020@gmail.com",
     "telephone": "+233 200 645 732",
-    "description": "Product Manager, Systems Analyst, and AI Engineer specializing in ethical and responsible AI solutions.",
+    "description": "Product Manager, Systems Designer, and AI Engineer specializing in ethical and responsible AI solutions.",
     "affiliation": {
       "@type": "Organization",
       "name": "Ghana Communication Technology University"
@@ -52,7 +52,7 @@ export default function Home() {
               Godwin Okronipa (Exornam)
             </h1>
             <p className="mt-4 text-lg sm:text-xl text-zinc-200">
-              <span className="accent">Product Manager</span> · <span className="accent">Systems Analyst</span> · <span className="accent">AI Engineer</span> · Advocate for <span className="accent">Ethical & Responsible AI</span>
+              <span className="accent">Product Manager</span> · <span className="accent">Systems Designer</span> · <span className="accent">AI Engineer</span> · Advocate for <span className="accent">Ethical & Responsible AI</span>
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
@@ -118,7 +118,7 @@ export default function Home() {
             </p>
 
             <p className="mt-3 text-zinc-200">
-              At Telecel Ghana, my role as a <span className="accent">Digital Transformation Analyst</span> deepens this passion. I collaborate with cross-functional teams to <span className="accent">reimagine processes</span>, <span className="accent">analyze data</span>, and guide the adoption of <span className="accent">digital tools</span> that reduce friction and unlock new opportunities.
+              At Telecel Ghana, my intern role as a <span className="accent">Digital Transformation Analyst</span> deepens this passion. I collaborate with cross-functional teams to <span className="accent">reimagine processes</span>, <span className="accent">analyze data</span>, and guide the adoption of <span className="accent">digital tools</span> that reduce friction and unlock new opportunities.
             </p>
 
             <p className="mt-3 text-zinc-200">
