@@ -49,7 +49,7 @@ export default function Home() {
         <div className="max-w-5xl mx-auto w-full">
           <div className="glass-dark p-8 sm:p-12 animate-fadeUp">
             <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight">
-              Godwin Okronipa (Exornam)
+              Godwin Okronipa Exornam
             </h1>
             <p className="mt-4 text-lg sm:text-xl text-zinc-200">
               <span className="accent">Product Manager</span> · <span className="accent">Systems Designer</span> · <span className="accent">AI Engineer</span> · Advocate for <span className="accent">Ethical & Responsible AI</span>
@@ -146,6 +146,23 @@ export default function Home() {
             <h2 className="text-2xl sm:text-3xl font-semibold">Experience</h2>
             <div className="mt-2 h-0.5 w-14" style={{ background: 'var(--accent)' }} />
 
+
+
+              <div className="glass p-5 rounded-xl">
+                <h3 className="text-lg font-semibold">
+                  Product Manager — Flywheel. <span className="font-normal text-zinc-300">(2024 – Present)</span>
+                </h3>
+                <ul className="mt-3 list-disc pl-5 text-zinc-300">
+                  <li>Launched <span className="accent">20+ apps & websites</span> with cross-functional teams, delivering projects on time and within scope.</li>
+                  <li>Crafted <span className="accent">product strategies</span> aligned with client goals, resulting in <span className="accent">measurable efficiency gains</span>.</li>
+                  <li>Engaged directly with SMEs to understand pain points and translate them into <span className="accent">technical requirements</span>.</li>
+                  <li>Oversaw <span className="accent">end-to-end product lifecycle</span>: ideation, design, development, deployment, and optimization.</li>
+                </ul>
+              </div>
+
+
+
+            
             <div className="mt-6 grid gap-4">
               <div className="glass p-5 rounded-xl">
                 <h3 className="text-lg font-semibold">
@@ -159,17 +176,7 @@ export default function Home() {
                 </ul>
               </div>
 
-              <div className="glass p-5 rounded-xl">
-                <h3 className="text-lg font-semibold">
-                  Product Manager — Flywheel Technologies Ltd. <span className="font-normal text-zinc-300">(2024 – Present)</span>
-                </h3>
-                <ul className="mt-3 list-disc pl-5 text-zinc-300">
-                  <li>Launched <span className="accent">20+ apps & websites</span> with cross-functional teams, delivering projects on time and within scope.</li>
-                  <li>Crafted <span className="accent">product strategies</span> aligned with client goals, resulting in <span className="accent">measurable efficiency gains</span>.</li>
-                  <li>Engaged directly with SMEs to understand pain points and translate them into <span className="accent">technical requirements</span>.</li>
-                  <li>Oversaw <span className="accent">end-to-end product lifecycle</span>: ideation, design, development, deployment, and optimization.</li>
-                </ul>
-              </div>
+
 
               <div className="glass p-5 rounded-xl">
                 <h3 className="text-lg font-semibold">
