@@ -26,6 +26,11 @@ const navItems = [
   { icon: FaEnvelope, label: 'Contact', href: '#contact' },
 ];
 
+const getAssetPath = (path: string) => {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+  return `${basePath}/${path.replace(/^\//, '')}`;
+};
+
 const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 30 },
   visible: { 
@@ -210,7 +215,7 @@ export default function Home() {
                     <div className="relative w-96 h-72 sm:w-[28rem] sm:h-[20rem] rounded-3xl overflow-hidden glass p-2">
                       <div className="relative w-full h-full rounded-2xl overflow-hidden">
                         <Image 
-                          src={imageHeld ? "/webimage2.webp" : "/webimage.webp"} 
+                          src={imageHeld ? getAssetPath("webimage2.webp") : getAssetPath("webimage.webp")} 
                           alt="Godwin Okronipa" 
                           fill 
                           className="object-cover cursor-pointer"
