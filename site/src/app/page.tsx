@@ -208,7 +208,11 @@ export default function Home() {
                   transition={{ duration: 1.2, delay: 0.3, ease: "easeOut" }}
                   className="flex justify-center mb-12"
                 >
-                  <div className="relative">
+                  <motion.div 
+                    className="relative"
+                    animate={{ y: [0, -10, 0] }}
+                    transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                  >
                     {/* Glow effect that appears when image is held */}
                     {imageHeld && (
                       <div className="absolute inset-0 rounded-3xl bg-gradient-to-r from-[var(--accent)] to-[var(--accent-secondary)] opacity-30 blur-xl z-[-1]" />
@@ -229,7 +233,7 @@ export default function Home() {
                       </div>
                     </div>
                     <p className="text-xs text-white/40 italic text-center mt-2">[💡 tap image for a surprise ;)]</p>
-                  </div>
+                  </motion.div>
                 </motion.div>
               )}
             </AnimatePresence>
