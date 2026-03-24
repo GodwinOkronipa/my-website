@@ -129,7 +129,7 @@ export default function Home() {
               }
             });
           },
-          { threshold: 0.3, rootMargin: '-100px 0px -100px 0px' }
+          { threshold: 0.15, rootMargin: '-20% 0px -20% 0px' }
         );
         observer.observe(element);
         observers.push(observer);
@@ -141,28 +141,20 @@ export default function Home() {
     };
   }, []);
 
-  // Touch event handlers for better mobile interaction
-  const handleTouchStart = () => {
-    setImageHeld(true);
-    // Clear any existing timeout
-    if (touchTimeoutRef.current) {
-      clearTimeout(touchTimeoutRef.current);
-    }
-  };
+  // Image reveal handlers
+  const triggerImageReveal = () => {
+    if (imageHeld) return; // Ignore secondary taps while image is already active
 
-  const handleTouchEnd = () => {
-    // Quick tap - show briefly then hide
+    setImageHeld(true);
+    if (touchTimeoutRef.current) clearTimeout(touchTimeoutRef.current);
+    
     touchTimeoutRef.current = setTimeout(() => {
       setImageHeld(false);
-    }, 200);
+    }, 2500);
   };
 
-  const handleMouseDown = () => {
-    setImageHeld(true);
-  };
-
-  const handleMouseUp = () => {
-    setImageHeld(false);
+  const handlePointerDown = () => {
+    triggerImageReveal();
   };
 
   const handleNavClick = (href: string) => {
@@ -189,7 +181,7 @@ export default function Home() {
         {/* Digital Clock */}
         {isClient && (
           <div className="fixed top-4 left-1/2 -translate-x-1/2 z-50">
-            <div className="glass px-4 py-2 rounded-full">
+            <div className="glass px-4 py-2 rounded-full whitespace-nowrap min-w-max">
               <p className="font-mono text-xs text-white/60 tracking-wider">
                 {currentTime} GMT • ACCRA, GHANA
               </p>
@@ -218,16 +210,11 @@ export default function Home() {
                     <div className="relative w-96 h-72 sm:w-[28rem] sm:h-[20rem] rounded-3xl overflow-hidden glass p-2">
                       <div className="relative w-full h-full rounded-2xl overflow-hidden">
                         <Image 
-                          src={imageHeld ? "/webimage2.jpg" : "/webimage.jpg"} 
+                          src={imageHeld ? "/webimage2.webp" : "/webimage.webp"} 
                           alt="Godwin Okronipa" 
                           fill 
                           className="object-cover cursor-pointer"
-                          onMouseDown={handleMouseDown}
-                          onMouseUp={handleMouseUp}
-                          onMouseLeave={handleMouseUp}
-                          onTouchStart={handleTouchStart}
-                          onTouchEnd={handleTouchEnd}
-                          onTouchCancel={handleMouseUp}
+                          onPointerDown={handlePointerDown}
                         />
                         
                         {/* Subtle gradient overlay */}
