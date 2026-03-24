@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { BackToTop } from "@/components/BackToTop";
@@ -14,6 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://godwinokronipa.github.io/my-website'),
   title: "Godwin Okronipa Exornam | Product Manager & AI Engineer",
   description: "Godwin Okronipa Exornam - Experienced Product Manager, Systems Analyst, and AI Engineer specializing in ethical AI solutions. Based in Ghana.",
   authors: [{
@@ -37,16 +38,19 @@ export const metadata: Metadata = {
     siteName: "Godwin Okronipa's Portfolio",
     images: [
       {
-        url: "/my-website/og-image.svg",
+        url: "/webimage.jpg",
         width: 1200,
         height: 630,
-        alt: "Godwin Okronipa — Product Manager • Systems Analyst • AI",
+        alt: "Godwin Okronipa — Product Manager • Systems Analyst • AI Engineer",
       },
     ],
     locale: 'en_US',
     type: 'website',
   },
-  themeColor: "#0f0f10",
+};
+
+export const viewport: Viewport = {
+  themeColor: "#0a0a0b",
 };
 
 export default function RootLayout({
