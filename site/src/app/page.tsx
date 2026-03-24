@@ -15,6 +15,9 @@ import {
   FaExternalLinkAlt
 } from 'react-icons/fa';
 import Image from 'next/image';
+import { WebHaptics } from 'web-haptics';
+
+const haptics = typeof window !== 'undefined' ? new WebHaptics() : null;
 
 const navItems = [
   { icon: FaHome, label: 'Home', href: '#home' },
@@ -28,7 +31,7 @@ const fadeInUp: Variants = {
   visible: { 
     opacity: 1, 
     y: 0,
-    transition: { duration: 0.6, ease: "easeOut" }
+    transition: { duration: 0.4, ease: "easeOut" }
   }
 };
 
@@ -163,6 +166,11 @@ export default function Home() {
   };
 
   const handleNavClick = (href: string) => {
+    // Add haptic feedback
+    if (haptics) {
+      haptics.trigger('light');
+    }
+
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -267,12 +275,12 @@ export default function Home() {
                   {/* CTA Buttons */}
                   <motion.div 
                     variants={fadeInUp}
-                    className="flex flex-wrap gap-3"
+                    className="flex flex-wrap justify-center gap-3"
                   >
                     <a
                       href="https://www.linkedin.com/in/godwin-okronipa-5b59002b6"
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                       className="btn-ghost inline-flex items-center gap-2 text-sm px-3 py-2"
                     >
                       <FaLinkedin size={14} />
@@ -281,7 +289,7 @@ export default function Home() {
                     <a
                       href="https://GitHub.com/GodwinOkronipa"
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                       className="btn-ghost inline-flex items-center gap-2 text-sm px-3 py-2"
                     >
                       <FaGithub size={14} />
@@ -290,7 +298,7 @@ export default function Home() {
                     <a
                       href="https://substack.com/@godwinnotes"
                       target="_blank"
-                      rel="noreferrer"
+                      rel="noopener noreferrer"
                       className="btn-ghost inline-flex items-center gap-2 text-sm px-3 py-2"
                     >
                       <FaFileAlt size={14} />
@@ -301,15 +309,15 @@ export default function Home() {
                   {/* Avatar + About Link with Image */}
                   <motion.div 
                     variants={fadeInUp}
-                    className="flex items-center gap-4 pt-4"
+                    className="flex flex-col items-center gap-4 pt-4"
                   >
-
                     <button 
                       onClick={() => {
                         handleNavClick('#about');
                         setThesisTypewriter(true);
+                        if (haptics) haptics.trigger('medium');
                       }}
-                      className="btn-ghost text-sm inline-flex items-center gap-2 group border border-green-500/50 hover:border-green-500 transition-all duration-300 relative"
+                      className="btn-ghost text-sm inline-flex items-center gap-2 group border border-green-500/50 hover:border-green-500 transition-all duration-300 relative w-full sm:w-auto"
                     >
                       <span className="absolute inset-0 rounded-lg animate-pulse border border-green-500/30 pointer-events-none -z-10" />
                       <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse mr-2" />
@@ -364,7 +372,7 @@ At heart, I'm driven by curiosity, creativity, and a commitment to impact. My vi
                   </p>
                 ) : (
                   <div className="text-center py-12">
-                    <p className="text-white/60 mb-4">Click the "My Personal Thesis" button above to see my story unfold...</p>
+                    <p className="text-white/60 mb-4">Click the &quot;My Personal Thesis&quot; button above to see the story unfold...</p>
                   </div>
                 )}
               </div>
@@ -649,7 +657,7 @@ At heart, I'm driven by curiosity, creativity, and a commitment to impact. My vi
                     <motion.span
                       layoutId="activeNav"
                       className="absolute inset-0 bg-white/10 rounded-full -z-10"
-                      transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                      transition={{ type: "spring", bounce: 0.2, duration: 0.4 }}
                     />
                   )}
                 </button>

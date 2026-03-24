@@ -76,14 +76,43 @@ export default function Typewriter({
     }
   }, [displayText, isTyping, text, speed, onComplete]);
 
+  // Helper function to render text with HTML-like links
+  const renderContent = (content: string) => {
+    const parts = content.split(/(<a[\s\S]*?<\/a>)/g);
+    
+    return parts.map((part, index) => {
+      if (part.startsWith('<a')) {
+        const hrefMatch = part.match(/href="([^"]*)"/);
+        const textMatch = part.match(/>([^<]*)</);
+        const href = hrefMatch ? hrefMatch[1] : '';
+        const linkText = textMatch ? textMatch[1] : '';
+        
+        return (
+          <a 
+            key={index}
+            href={href} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="text-[var(--accent)] underline hover:opacity-80 transition-opacity"
+            style={{ textDecoration: 'underline' }}
+          >
+            {linkText}
+          </a>
+        );
+      }
+      
+      return part.split('\n').map((line, lineIndex, array) => (
+        <span key={`${index}-${lineIndex}`}>
+          {line}
+          {lineIndex < array.length - 1 && <br />}
+        </span>
+      ));
+    });
+  };
+
   return (
     <span className={className}>
-      {displayText.split('\n').map((line, index) => (
-        <span key={index}>
-          {line}
-          {index < displayText.split('\n').length - 1 && <br />}
-        </span>
-      ))}
+      {renderContent(displayText)}
       {showCursor && showCursorState && (
         <span className="typewriter-cursor" />
       )}
