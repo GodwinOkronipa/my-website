@@ -550,13 +550,13 @@ At heart, I'm driven by curiosity, creativity, and a commitment to impact. My vi
               >
                 <motion.a
                   variants={slideIn}
-                  href="mailto:godwinokro2020@gmail.com"
+                  href="mailto:gokronipa@icloud.com"
                   className="glass p-4 flex items-center gap-3 hover:border-white/20 transition-colors"
                 >
                   <FaEnvelope size={20} className="text-[var(--accent)]" />
                   <div>
                     <p className="text-sm text-white/50">Email</p>
-                    <p className="text-sm font-medium">godwinokro2020@gmail.com</p>
+                    <p className="text-sm font-medium">gokronipa@icloud.com</p>
                   </div>
                 </motion.a>
 
