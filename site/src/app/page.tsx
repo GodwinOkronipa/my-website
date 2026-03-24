@@ -232,7 +232,9 @@ export default function Home() {
                         <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
                       </div>
                     </div>
-                    <p className="text-xs text-white/40 italic text-center mt-2">[💡 tap image for a surprise ;)]</p>
+                    <p className="text-xs text-white/40 italic text-center mt-2 px-4 min-h-[1.5rem]">
+                      {imageHeld ? "Welcome, it's nice to meet you" : "[💡 tap image to say hi ;)]"}
+                    </p>
                   </motion.div>
                 </motion.div>
               )}
