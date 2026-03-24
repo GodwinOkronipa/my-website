@@ -58,7 +58,6 @@ export default function Home() {
   const [typingComplete, setTypingComplete] = useState(false);
   const [isClient, setIsClient] = useState(false);
   const [thesisTypewriter, setThesisTypewriter] = useState(false);
-  const [currentThesisLine, setCurrentThesisLine] = useState(0);
   const [imageHeld, setImageHeld] = useState(false);
   const [currentTime, setCurrentTime] = useState('');
   const touchTimeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -309,11 +308,11 @@ export default function Home() {
                       onClick={() => {
                         handleNavClick('#about');
                         setThesisTypewriter(true);
-                        setCurrentThesisLine(0);
                       }}
                       className="btn-ghost text-sm inline-flex items-center gap-2 group border border-green-500/50 hover:border-green-500 transition-all duration-300 relative"
                     >
                       <span className="absolute inset-0 rounded-lg animate-pulse border border-green-500/30 pointer-events-none -z-10" />
+                      <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse mr-2" />
                       My Personal Thesis — Building the Africa we deserve, one system at a time.
                       <FaExternalLinkAlt size={14} className="opacity-0 group-hover:opacity-100 transition-opacity" />
                     </button>
@@ -354,7 +353,7 @@ As a Product Manager at <a href="https://bookflywheel.com" target="_blank" rel="
 
 At Telecel Ghana, my intern role as a Digital Transformation Analyst deepens this passion. I collaborated with cross-functional teams to reimagine processes, analyze data, and guide the adoption of digital tools to opportunities.
 
-I have consulted for several 7-figure businesses and am open to conversations on digital strategy and transformation.
+I have worked with and consulted for several 7/8-figure businesses in Ghana and am open to conversations on digital strategy, intelligent automation and transformation.
 
 Beyond industry, I'm deeply invested in the future of ethical and responsible AI. I see AI as a powerful tool for progress, but only if guided with principles of fairness, transparency, and impact.
 
