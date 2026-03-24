@@ -151,6 +151,8 @@ export default function Home() {
     if (imageHeld) return; // Ignore secondary taps while image is already active
 
     setImageHeld(true);
+    if (haptics) haptics.trigger('medium');
+    
     if (touchTimeoutRef.current) clearTimeout(touchTimeoutRef.current);
     
     touchTimeoutRef.current = setTimeout(() => {
@@ -256,7 +258,7 @@ export default function Home() {
                       initial={{ opacity: 0 }}
                       animate={{ opacity: typingComplete ? 1 : 0 }}
                       transition={{ duration: 0.5, delay: 0.2 }}
-                      className="text-lg sm:text-xl text-white/60 max-w-2xl text-center"
+                      className="text-lg sm:text-xl text-white/60 max-w-2xl text-center mx-auto"
                     >
                       I build systems that actually work in Africa
                       <br />
@@ -554,7 +556,7 @@ At heart, I'm driven by curiosity, creativity, and a commitment to impact. My vi
                   <FaEnvelope size={20} className="text-[var(--accent)]" />
                   <div>
                     <p className="text-sm text-white/50">Email</p>
-                    <p className="font-medium">godwinokro2020@gmail.com</p>
+                    <p className="text-sm font-medium">godwinokro2020@gmail.com</p>
                   </div>
                 </motion.a>
 
@@ -584,6 +586,7 @@ At heart, I'm driven by curiosity, creativity, and a commitment to impact. My vi
                       <input 
                         id="name" 
                         name="name" 
+                        required
                         className="w-full glass bg-transparent px-4 py-3 rounded-xl outline-none focus:border-[var(--accent)]/50 transition-colors" 
                         placeholder="Your name" 
                       />
@@ -594,6 +597,7 @@ At heart, I'm driven by curiosity, creativity, and a commitment to impact. My vi
                         id="email" 
                         name="email" 
                         type="email" 
+                        required
                         className="w-full glass bg-transparent px-4 py-3 rounded-xl outline-none focus:border-[var(--accent)]/50 transition-colors" 
                         placeholder="you@example.com" 
                       />
@@ -605,6 +609,7 @@ At heart, I'm driven by curiosity, creativity, and a commitment to impact. My vi
                       id="message" 
                       name="message" 
                       rows={4} 
+                      required
                       className="w-full glass bg-transparent px-4 py-3 rounded-xl outline-none focus:border-[var(--accent)]/50 transition-colors resize-none" 
                       placeholder="Say hello..." 
                     />
