@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, Variants } from 'framer-motion';
 import NameTypewriter from '@/components/NameTypewriter';
 import Typewriter from '@/components/Typewriter';
@@ -61,6 +61,7 @@ export default function Home() {
   const [currentThesisLine, setCurrentThesisLine] = useState(0);
   const [imageHeld, setImageHeld] = useState(false);
   const [currentTime, setCurrentTime] = useState('');
+  const touchTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   // Add schema.org structured data
   const structuredData = {
@@ -138,6 +139,30 @@ export default function Home() {
     };
   }, []);
 
+  // Touch event handlers for better mobile interaction
+  const handleTouchStart = () => {
+    setImageHeld(true);
+    // Clear any existing timeout
+    if (touchTimeoutRef.current) {
+      clearTimeout(touchTimeoutRef.current);
+    }
+  };
+
+  const handleTouchEnd = () => {
+    // Quick tap - show briefly then hide
+    touchTimeoutRef.current = setTimeout(() => {
+      setImageHeld(false);
+    }, 200);
+  };
+
+  const handleMouseDown = () => {
+    setImageHeld(true);
+  };
+
+  const handleMouseUp = () => {
+    setImageHeld(false);
+  };
+
   const handleNavClick = (href: string) => {
     const element = document.querySelector(href);
     if (element) {
@@ -189,18 +214,20 @@ export default function Home() {
                           src={imageHeld ? "/webimage2.jpg" : "/webimage.jpg"} 
                           alt="Godwin Okronipa" 
                           fill 
-                          className="object-cover"
-                          onMouseDown={() => setImageHeld(true)}
-                          onMouseUp={() => setImageHeld(false)}
-                          onTouchStart={() => setImageHeld(true)}
-                          onTouchEnd={() => setImageHeld(false)}
+                          className="object-cover cursor-pointer"
+                          onMouseDown={handleMouseDown}
+                          onMouseUp={handleMouseUp}
+                          onMouseLeave={handleMouseUp}
+                          onTouchStart={handleTouchStart}
+                          onTouchEnd={handleTouchEnd}
+                          onTouchCancel={handleMouseUp}
                         />
                         
                         {/* Subtle gradient overlay */}
                         <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
                       </div>
                     </div>
-                    <p className="text-xs text-white/40 italic text-center mt-2">[ tap image for a surprise ;)]</p>
+                    <p className="text-xs text-white/40 italic text-center mt-2">[💡 tap image for a surprise ;)]</p>
                   </div>
                 </motion.div>
               )}
@@ -380,8 +407,8 @@ At heart, I'm driven by curiosity, creativity, and a commitment to impact. My vi
                     <span><span className="accent font-medium">1 of 30 young Changemakers</span> selected across 6 African countries to tackle the continent&apos;s biggest problems through STEM innovation.</span>
                   </li>
                   <li className="flex gap-3">
-                    <span className="text-[var(--accent)] mt-1">•</span>
-                    <span>Received <span className="accent font-medium">$1,000 bursary</span> and 1-on-1 mentorship from industry experts and academic leaders.</span>
+                    <span className="text-[var(--accent)] mt-1">•</span>  
+                    <span>Received a <span className="accent font-medium">generous bursary ;)</span> and 1-on-1 mentorship from industry experts and academic leaders.</span>
                   </li>
                   <li className="flex gap-3">
                     <span className="text-[var(--accent)] mt-1">•</span>
