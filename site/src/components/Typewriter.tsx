@@ -76,11 +76,14 @@ export default function Typewriter({
     }
   }, [displayText, isTyping, text, speed, onComplete]);
 
-  // Helper function to render text with HTML-like links
+  // Helper function to render text with HTML-like tags
   const renderContent = (content: string) => {
-    const parts = content.split(/(<a[\s\S]*?<\/a>)/g);
+    // Split by tags we want to support: <a>, <b>, <i>, <h2> and blockquote style
+    const parts = content.split(/(<a[\s\S]*?<\/a>|<b>[\s\S]*?<\/b>|<i>[\s\S]*?<\/i>|<h2>[\s\S]*?<\/h2>|^> .*)/gm);
     
     return parts.map((part, index) => {
+      if (!part) return null;
+
       if (part.startsWith('<a')) {
         const hrefMatch = part.match(/href="([^"]*)"/);
         const textMatch = part.match(/>([^<]*)</);
@@ -100,6 +103,33 @@ export default function Typewriter({
           </a>
         );
       }
+
+      if (part.startsWith('<b>')) {
+        const textMatch = part.match(/>([^<]*)</);
+        const boldText = textMatch ? textMatch[1] : '';
+        return <b key={index} className="font-bold text-white">{boldText}</b>;
+      }
+
+      if (part.startsWith('<i>')) {
+        const textMatch = part.match(/>([^<]*)</);
+        const italicText = textMatch ? textMatch[1] : '';
+        return <i key={index} className="italic text-white/90 leading-relaxed block my-2">{italicText}</i>;
+      }
+
+      if (part.startsWith('<h2>')) {
+        const textMatch = part.match(/>([^<]*)</);
+        const headingText = textMatch ? textMatch[1] : '';
+        return <h2 key={index} className="text-xl sm:text-2xl font-bold text-[var(--accent)] mt-8 mb-4 block">{headingText}</h2>;
+      }
+
+      if (part.startsWith('> ')) {
+        const quoteText = part.substring(2);
+        return (
+          <blockquote key={index} className="border-l-2 border-[var(--accent)]/30 pl-4 py-1 my-4 italic text-white/70 bg-white/5 rounded-r-lg block">
+            {quoteText}
+          </blockquote>
+        );
+      }
       
       return part.split('\n').map((line, lineIndex, array) => (
         <span key={`${index}-${lineIndex}`}>
@@ -111,11 +141,11 @@ export default function Typewriter({
   };
 
   return (
-    <span className={className}>
+    <div className={className}>
       {renderContent(displayText)}
       {showCursor && showCursorState && (
         <span className="typewriter-cursor" />
       )}
-    </span>
+    </div>
   );
 }

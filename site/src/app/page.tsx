@@ -12,7 +12,8 @@ import {
   FaUser,
   FaBriefcase,
   FaEnvelope,
-  FaExternalLinkAlt
+  FaExternalLinkAlt,
+  FaChevronDown
 } from 'react-icons/fa';
 import Image from 'next/image';
 import { WebHaptics } from 'web-haptics';
@@ -60,6 +61,49 @@ const slideIn: Variants = {
   }
 };
 
+const experiences = [
+  {
+    title: "Yango Africa STEM Fellow 2026",
+    period: "2026 – Present",
+    points: [
+      "<span class=\"accent font-medium\">1 of 30 young Changemakers</span> selected across 6 African countries to tackle the continent's biggest problems through STEM innovation.",
+      "Received a <span class=\"accent font-medium\">generous bursary ;)</span> and 1-on-1 mentorship from industry experts and academic leaders.",
+      "Collaborating with fellows across 6 nations in an <span class=\"accent font-medium\">inter-country network</span>.",
+      "Preparing for a pitch in <span class=\"accent font-medium\">Abidjan, Côte d'Ivoire</span> where my stealth project would receive funding."
+    ]
+  },
+  {
+    title: "Product Manager — Flywheel",
+    period: "2024 – Present",
+    points: [
+      "Launched <span class=\"accent font-medium\">20+ apps & websites</span> with cross-functional teams, delivering projects on time and within scope.",
+      "Crafted <span class=\"accent font-medium\">product strategies</span> aligned with client goals, resulting in <span class=\"accent font-medium\">measurable efficiency gains</span>.",
+      "Engaged directly with SMEs to understand pain points and translate them into <span class=\"accent font-medium\">technical requirements</span>.",
+      "Oversaw <span class=\"accent font-medium\">end-to-end product lifecycle</span>: ideation, design, development, deployment, and optimization."
+    ]
+  },
+  {
+    title: "Digital Transformation Analyst — Telecel Ghana",
+    period: "Sep 2025",
+    points: [
+      "Spearheaded <span class=\"accent font-medium\">process automation</span> initiatives in TCASH and DT teams.",
+      "Analyzed operational data and proposed <span class=\"accent font-medium\">digital workflows</span> that improved cross-department efficiency.",
+      "Collaborated with IT and business units to design <span class=\"accent font-medium\">scalable digital solutions</span>.",
+      "Supported the rollout of new <span class=\"accent font-medium\">enterprise systems</span>, ensuring smooth adoption through training and documentation."
+    ]
+  },
+  {
+    title: "Robotics Instructor — GCTU",
+    period: "2024 – Present",
+    points: [
+      "Mentor and guide students in <span class=\"accent font-medium\">robotics engineering</span> principles, embedded systems, and automation technologies.",
+      "Lead hands-on workshops and project-based learning sessions to develop <span class=\"accent font-medium\">practical robotics skills</span>.",
+      "Coach student teams for <span class=\"accent font-medium\">national and international robotics competitions</span>.",
+      "Organize and judge <span class=\"accent font-medium\">hackathons and tech challenges</span> to foster creativity and collaboration."
+    ]
+  }
+];
+
 export default function Home() {
   const [activeSection, setActiveSection] = useState('home');
   const [showContent, setShowContent] = useState(false);
@@ -68,6 +112,7 @@ export default function Home() {
   const [thesisTypewriter, setThesisTypewriter] = useState(false);
   const [imageHeld, setImageHeld] = useState(false);
   const [currentTime, setCurrentTime] = useState('');
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
   const touchTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   // Add schema.org structured data
@@ -350,26 +395,34 @@ export default function Home() {
 
               <div className="text-white/80 leading-relaxed">
                 {thesisTypewriter ? (
-                  <p>
+                  <div>
                     <Typewriter 
                       key="thesis-full"
-                      text={`I'm a curious builder who loves clean design and helpful systems. At my core, I believe technology should feel intuitive and empowering, not overwhelming.
+                      text={`<i>Building the Africa we deserve, one system at a time.</i>
+> "Even those who want to go to heaven don't want to die to get there."— Steve Jobs
+<h2>The Vision</h2>
+Everyone wants progress, but nobody wants the friction that usually comes with it. In the context of Ghana and the wider continent, "heaven" is a seamless, digitized economy, where systems work for people, not against them. At least that's how the politicians have been selling it. My work however, centers around removing that friction. <b>I build systems that bridge the gap between where we are and the Africa we deserve.</b>
 
-Currently pursuing Computer Engineering at GCTU, I sit at the intersection of Hardware systems, Software Development and product management. My work spans from hands-on engineering to high-level strategy, where I enjoy translating complex technical concepts into solutions that people can actually use.
+Currently pursuing Computer Engineering at GCTU, I sit at the intersection of Hardware systems, Software Development and digital product management. My work spans from hands-on engineering to high-level strategy, where I enjoy translating complex technical concepts into solutions that people can actually use.
 
-As a Product Manager at <a href="https://bookflywheel.com" target="_blank" rel="noopener noreferrer" className="text-[var(--accent)] underline hover:opacity-80 transition-opacity">Flywheel Technologies</a>, I've led the launch of over 20 apps and websites for SMEs in Ghana, helping businesses digitize operations, automate workflows, and uncover efficiency gains they didn't think were possible.
+I translate complex technical hurdles into intuitive solutions that people actually want to use, and I am passionate about building systems that empower people and communities.
 
-At Telecel Ghana, my intern role as a Digital Transformation Analyst deepens this passion. I collaborated with cross-functional teams to reimagine processes, analyze data, and guide the adoption of digital tools to opportunities.
+<h2>The Impact</h2>
+As a Product Manager at <a href="https://bookflywheel.com" target="_blank" rel="noopener noreferrer">Flywheel Technologies</a>, I've led the launch of over 20 apps and websites for SMEs in Ghana, helping businesses digitize operations, automate workflows, and uncover efficiency gains they didn't think were possible.
 
 I have worked with and consulted for several 7/8-figure businesses in Ghana and am open to conversations on digital strategy, intelligent automation and transformation.
 
 Beyond industry, I'm deeply invested in the future of ethical and responsible AI. I see AI as a powerful tool for progress, but only if guided with principles of fairness, transparency, and impact.
 
-At heart, I'm driven by curiosity, creativity, and a commitment to impact. My vision is simple: to contribute to a future where Africa doesn't just consume technology, but builds it, shapes it, and leads with it.`}
-                      speed={12}
+At heart, I'm driven by curiosity, creativity, and a commitment to impact. My vision is simple: to contribute to a future where Africa doesn't just consume technology, but builds it, shapes it, and leads with it.
+
+<h2>The Mission</h2>
+Technology shouldn’t be a burden. It should be an empowerment. I believe in creating systems that feel like second nature—tools that give people the results they want without the struggle of bad design.
+<b>Let’s build the future, one system at a time.</b>`}
+                      speed={10}
                       start={true}
                     />
-                  </p>
+                  </div>
                 ) : (
                   <div className="text-center py-12">
                     <p className="text-white/60 mb-4">Click the &quot;My Personal Thesis&quot; button above to see the story unfold...</p>
@@ -394,141 +447,65 @@ At heart, I'm driven by curiosity, creativity, and a commitment to impact. My vi
             </motion.h2>
 
             <div className="space-y-4">
-              {/* Yango Africa STEM Fellow */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: 0 }}
-                className="glass p-6 sm:p-8"
-              >
-                <div className="flex flex-wrap items-baseline justify-between gap-2 mb-4">
-                  <h3 className="text-lg font-semibold">
-                    Yango Africa STEM Fellow 2026
-                  </h3>
-                  <span className="text-sm text-white/50">2026 – Present</span>
-                </div>
-                <ul className="space-y-3 text-white/70">
-                  <li className="flex gap-3">
-                    <span className="text-[var(--accent)] mt-1">•</span>
-                    <span><span className="accent font-medium">1 of 30 young Changemakers</span> selected across 6 African countries to tackle the continent&apos;s biggest problems through STEM innovation.</span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="text-[var(--accent)] mt-1">•</span>  
-                    <span>Received a <span className="accent font-medium">generous bursary ;)</span> and 1-on-1 mentorship from industry experts and academic leaders.</span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="text-[var(--accent)] mt-1">•</span>
-                    <span>Collaborating with fellows across 6 nations in an <span className="accent font-medium">inter-country network</span>.</span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="text-[var(--accent)] mt-1">•</span>
-                    <span>Preparing for a pitch in <span className="accent font-medium">Abidjan, Côte d&apos;Ivoire</span> where my stealth project would receive funding.</span>
-                  </li>
-                </ul>
-              </motion.div>
+              {experiences.map((exp, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.4, delay: index * 0.1 }}
+                  className={`glass overflow-hidden transition-all duration-300 ${
+                    expandedIndex === index ? 'ring-1 ring-[var(--accent)]/30' : ''
+                  }`}
+                >
+                  <button
+                    onClick={() => {
+                      setExpandedIndex(expandedIndex === index ? null : index);
+                      if (haptics) haptics.trigger('light');
+                    }}
+                    className="w-full text-left p-6 sm:p-8 flex items-baseline justify-between gap-4 group"
+                  >
+                    <div className="flex-1">
+                      <h3 className="text-lg font-semibold group-hover:text-[var(--accent)] transition-colors">
+                        {exp.title}
+                      </h3>
+                      <p className="text-sm text-white/50 mt-1">{exp.period}</p>
+                    </div>
+                    <motion.div
+                      animate={{ rotate: expandedIndex === index ? 180 : 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="text-white/30 group-hover:text-white/60"
+                    >
+                      <FaChevronDown size={14} />
+                    </motion.div>
+                  </button>
 
-              {/* Product Manager - Flywheel */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                className="glass p-6 sm:p-8"
-              >
-                <div className="flex flex-wrap items-baseline justify-between gap-2 mb-4">
-                  <h3 className="text-lg font-semibold">
-                    Product Manager — Flywheel
-                  </h3>
-                  <span className="text-sm text-white/50">2024 – Present</span>
-                </div>
-                <ul className="space-y-3 text-white/70">
-                  <li className="flex gap-3">
-                    <span className="text-[var(--accent)] mt-1">•</span>
-                    <span>Launched <span className="accent font-medium">20+ apps & websites</span> with cross-functional teams, delivering projects on time and within scope.</span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="text-[var(--accent)] mt-1">•</span>
-                    <span>Crafted <span className="accent font-medium">product strategies</span> aligned with client goals, resulting in <span className="accent font-medium">measurable efficiency gains</span>.</span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="text-[var(--accent)] mt-1">•</span>
-                    <span>Engaged directly with SMEs to understand pain points and translate them into <span className="accent font-medium">technical requirements</span>.</span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="text-[var(--accent)] mt-1">•</span>
-                    <span>Oversaw <span className="accent font-medium">end-to-end product lifecycle</span>: ideation, design, development, deployment, and optimization.</span>
-                  </li>
-                </ul>
-              </motion.div>
-
-              {/* Digital Transformation Analyst - Telecel */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="glass p-6 sm:p-8"
-              >
-                <div className="flex flex-wrap items-baseline justify-between gap-2 mb-4">
-                  <h3 className="text-lg font-semibold">
-                    Digital Transformation Analyst — Telecel Ghana
-                  </h3>
-                  <span className="text-sm text-white/50">Sep 2025</span>
-                </div>
-                <ul className="space-y-3 text-white/70">
-                  <li className="flex gap-3">
-                    <span className="text-[var(--accent)] mt-1">•</span>
-                    <span>Spearheaded <span className="accent font-medium">process automation</span> initiatives in TCASH and DT teams.</span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="text-[var(--accent)] mt-1">•</span>
-                    <span>Analyzed operational data and proposed <span className="accent font-medium">digital workflows</span> that improved cross-department efficiency.</span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="text-[var(--accent)] mt-1">•</span>
-                    <span>Collaborated with IT and business units to design <span className="accent font-medium">scalable digital solutions</span>.</span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="text-[var(--accent)] mt-1">•</span>
-                    <span>Supported the rollout of new <span className="accent font-medium">enterprise systems</span>, ensuring smooth adoption through training and documentation.</span>
-                  </li>
-                </ul>
-              </motion.div>
-
-              {/* Robotics Instructor - GCTU */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                className="glass p-6 sm:p-8"
-              >
-                <div className="flex flex-wrap items-baseline justify-between gap-2 mb-4">
-                  <h3 className="text-lg font-semibold">
-                    Robotics Instructor — GCTU
-                  </h3>
-                  <span className="text-sm text-white/50">2024 – Present</span>
-                </div>
-                <ul className="space-y-3 text-white/70">
-                  <li className="flex gap-3">
-                    <span className="text-[var(--accent)] mt-1">•</span>
-                    <span>Mentor and guide students in <span className="accent font-medium">robotics engineering</span> principles, embedded systems, and automation technologies.</span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="text-[var(--accent)] mt-1">•</span>
-                    <span>Lead hands-on workshops and project-based learning sessions to develop <span className="accent font-medium">practical robotics skills</span>.</span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="text-[var(--accent)] mt-1">•</span>
-                    <span>Coach student teams for <span className="accent font-medium">national and international robotics competitions</span>.</span>
-                  </li>
-                  <li className="flex gap-3">
-                    <span className="text-[var(--accent)] mt-1">•</span>
-                    <span>Organize and judge <span className="accent font-medium">hackathons and tech challenges</span> to foster creativity and collaboration.</span>
-                  </li>
-                </ul>
-              </motion.div>
+                  <AnimatePresence initial={false}>
+                    {expandedIndex === index && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                      >
+                        <div className="px-6 sm:px-8 pb-8 pt-0">
+                          <ul className="space-y-3 text-white/70 border-t border-white/5 pt-6">
+                            {exp.points.map((point, i) => (
+                              <li key={i} className="flex gap-3">
+                                <span className="text-[var(--accent)] mt-1">•</span>
+                                <span dangerouslySetInnerHTML={{ 
+                                  __html: point.replace(/<span className="accent font-medium">(.*?)<\/span>/g, '<span class="accent font-medium">$1</span>')
+                                    .replace(/<span class="accent font-medium">(.*?)<\/span>/g, '<span class="accent font-medium">$1</span>') 
+                                }} />
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>
