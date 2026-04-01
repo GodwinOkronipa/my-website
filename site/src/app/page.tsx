@@ -74,7 +74,7 @@ const experiences = [
   },
   {
     title: "Product Manager — Flywheel",
-    period: "2024 – Present",
+    period: "2025 – Present",
     points: [
       "Launched <span class=\"accent font-medium\">20+ apps & websites</span> with cross-functional teams, delivering projects on time and within scope.",
       "Crafted <span class=\"accent font-medium\">product strategies</span> aligned with client goals, resulting in <span class=\"accent font-medium\">measurable efficiency gains</span>.",
