@@ -66,7 +66,7 @@ const experiences = [
     title: "Yango Africa STEM Fellow 2026",
     period: "2026 – Present",
     points: [
-      "<span class=\"accent font-medium\">1 of 30 young Changemakers</span> selected across 6 African countries to tackle the continent's biggest problems through STEM innovation.",
+      "<span class=\"accent font-medium\">1 of 24 young Changemakers</span> selected across 6 African countries to tackle the continent's biggest problems through STEM innovation.",
       "Received a <span class=\"accent font-medium\">generous bursary ;)</span> and 1-on-1 mentorship from industry experts and academic leaders.",
       "Collaborating with fellows across 6 nations in an <span class=\"accent font-medium\">inter-country network</span>.",
       "Preparing for a pitch in <span class=\"accent font-medium\">Abidjan, Côte d'Ivoire</span> where my stealth project would receive funding."
